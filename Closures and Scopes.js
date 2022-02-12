@@ -1,13 +1,17 @@
-// We want to create a function, which returns an array of functions, which return their index in the array.
+// There's no such thing as private properties on a coffeescript object! But, maybe there are?
 
-function createFunctions(n) {
-  const callbacks = []
+// Implement a function createSecretHolder(secret) which accepts any value as secret and returns an object with ONLY two methods
 
-  for (let i = 0; i < n; i++) {
-    callbacks.push(function () {
-      return i
-    })
+// getSecret() which returns the secret
+// setSecret() which sets the secret
+
+function createSecretHolder(secret) {
+  return {
+    getSecret: function () {
+      return secret
+    },
+    setSecret: function (x) {
+      secret = x
+    },
   }
-
-  return callbacks
 }
